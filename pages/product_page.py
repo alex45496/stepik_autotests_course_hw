@@ -20,13 +20,21 @@ class ProductPage(BasePage):
     def should_be_message_add_product(self):
         product_name = self.get_product_name()
         full_message = f'{product_name} has been added to your basket.'
-        message_success_add_product = self.browser.find_element(By.CSS_SELECTOR, '#messages .alert-success:nth-child(1) .alertinner').text
+        message_success_add_product = self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE_ADD_PRODUCT).text
         assert full_message == message_success_add_product,\
             f"expected '{product_name}' to be substring of '{message_success_add_product}'"
 
     def should_be_message_price_product(self):
         product_price = self.get_product_price()
         full_message = f'Your basket total is now {product_price}'
-        message_info_price_product = self.browser.find_element(By.CSS_SELECTOR, '#messages .alert-info p:nth-child(1)').text
+        message_info_price_product = self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE_INFO_PRICE_PRODUCT).text
         assert full_message == message_info_price_product,\
             f"expected '{product_price}' to be substring of '{message_info_price_product}'"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE_ADD_PRODUCT), \
+            "Success message is presented, but should not be"
+
+    def should_be_disappear_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE_ADD_PRODUCT), \
+            "Success message is presented, but should not be"

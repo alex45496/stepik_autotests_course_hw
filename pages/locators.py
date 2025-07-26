@@ -13,3 +13,5 @@ class LoginPageLocators:
 class ProductPageLocators:
     PRODUCT_NAME = (By.CSS_SELECTOR, ".product_main h1")
     PRODUCT_PRICE = (By.CSS_SELECTOR, ".product_main .price_color")
+    SUCCESS_MESSAGE_ADD_PRODUCT = (By.CSS_SELECTOR, '#messages .alert-success:nth-child(1) .alertinner')
+    SUCCESS_MESSAGE_INFO_PRICE_PRODUCT = (By.CSS_SELECTOR, '#messages .alert-info p:nth-child(1)')
