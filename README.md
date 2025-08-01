@@ -1,2 +1,2 @@
-Тестовый проект по курсу "Автоматизация тестирования с помощью Selenium и Python".  
-Ссылка на курс - https://stepik.org/course/575/info
+Test project for the course "Test automation with Selenium and Python".
+Link to the course - https://stepik.org/course/575/info
